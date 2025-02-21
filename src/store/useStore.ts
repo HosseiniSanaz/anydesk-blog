@@ -4,9 +4,10 @@ import { IPost } from "@/types/post.type";
 
 interface Store {
   posts: IPost[];
+  setPosts: (posts: IPost[]) => void;
   loading: boolean;
   error: string | null;
-  fetchPosts: () => Promise<void>;
+  fetchPosts: () => Promise<IPost[] | undefined>;
   fetchPostById: (id: number) => Promise<IPost>;
   deletePost: (id: number) => Promise<void>;
   editPost: (id: number, post: IPost) => Promise<void>;
@@ -15,13 +16,17 @@ interface Store {
 
 const useStore = create<Store>((set, get) => ({
   posts: [],
+  setPosts: (posts: IPost[]) => set({ posts }),
   loading: false,
   error: null,
   fetchPosts: async () => {
     set({ loading: true, error: null })
     try {
       const posts = await getPosts()
-      set({ posts, loading: false })
+      setTimeout(() => {
+        set({ posts, loading: false })
+      }, 1000);
+      return posts;
     } catch (error) {
       set({ error: "Failed to fetch posts", loading: false })
     }
@@ -29,11 +34,17 @@ const useStore = create<Store>((set, get) => ({
   fetchPostById: async (id: number) => {
     set({ loading: true, error: null });
     try {
-      const post = get().posts.find((post: IPost) => post.id === id);
+      let posts = get().posts;
+      if (posts.length === 0) {
+        posts = await getPosts();
+      }
+      const post = posts.find((post: IPost) => post.id === id);
       if (!post) {
         throw new Error('Post not found');
       }
-      set({ loading: false });
+      setTimeout(() => {
+        set({ loading: false });
+      }, 1000);
       return post;
     } catch (error) {
       set({ error: "Failed to find post", loading: false });
@@ -44,7 +55,7 @@ const useStore = create<Store>((set, get) => ({
     set({ loading: true, error: null });
     try {
       const posts = get().posts.filter((post: IPost) => post.id !== id);
-      set({ posts, loading: false }); 
+      set({ posts, loading: false });
     } catch (error) {
       set({ error: "Failed to delete post", loading: false });
       throw error;

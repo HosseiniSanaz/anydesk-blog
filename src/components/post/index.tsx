@@ -4,16 +4,24 @@ import { IPost } from "@/types/post.type";
 import { useEffect, useState } from "react";
 import { PostContainer, PostHeader, PostTitle, PostBody, ButtonContainer, EditButton, BackButton } from "./styles";
 import DeleteAction from "../delete-action";
+import Loading from "@/components/ui/loading";
+
+
 const Post: React.FC = () => {
     const router = useRouter();
     const { id } = router.query;
-    const { fetchPostById } = useStore();
-    const [post, setPost] = useState<IPost | null>(null);
+    const { fetchPostById, loading } = useStore();
+    const [post, setPost] = useState<IPost | null>();
 
     useEffect(() => {
-        fetchPostById(Number(id)).then((post) => setPost(post));
+        if(id) {
+            fetchPostById(Number(id)).then((post) => setPost(post));
+        }
     }, [fetchPostById, id]);
 
+    if (loading) {
+        return <Loading />
+    }
 
     return (
         <PostContainer>

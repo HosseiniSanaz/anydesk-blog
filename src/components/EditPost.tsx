@@ -14,7 +14,9 @@ export default function EditPost() {
     const [post, setPost] = useState<IPost>();
 
     useEffect(() => {
-        fetchPostById(Number(id)).then((post) => setPost(post));
+        if(id) {
+            fetchPostById(Number(id)).then((post) => setPost(post));
+        }
     }, [fetchPostById, id]);
 
     const handleSubmit = (post: IPost) => {

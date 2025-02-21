@@ -1,29 +1,38 @@
-import Image from "next/image";
 import useStore from "@/store/useStore";
 import { useEffect } from "react";
 import PostList from "@/components/post-list";
+import Loading from "@/components/ui/loading";
+import Footer from "@/components/Footer";
+
 
 export default function Home() {
-  const { posts, fetchPosts } = useStore()
+  const { posts, fetchPosts, loading } = useStore()
 
   useEffect(() => {
-    if (posts.length === 0) {
+    if(posts.length === 0) {
       fetchPosts()
     }
-  }, [posts, fetchPosts])
+  }, [fetchPosts, posts])
 
+  if (loading) {
+    return <Loading />
+  }
 
   return (
-    <div
-      className={`items-center justify-items-center `}
-    >
+    <div>
       <PostList posts={posts} />
-      <footer className="row-start-3 flex flex-row gap-6 flex-wrap items-center justify-center">
-        <a href="https://www.linkedin.com/in/hosseinisanaz/" target="_blank" rel="noopener noreferrer">
-          © 2025 Powered by <b>Sanaz</b>
-        </a>
-        <Image src="/logo.png" alt="Anydesk Logo" width={72} height={18} />
-      </footer>
+      <Footer />  
     </div>
   );
 }
+
+// export const getStaticProps: GetStaticProps = async () => {
+//   const posts = await getPosts()
+//   console.log('posts',posts)
+//   return {
+//     props: {
+//       posts,
+//     },
+//     revalidate: 120,
+//   }
+// }
