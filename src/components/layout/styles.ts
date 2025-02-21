@@ -44,19 +44,27 @@ const Main = styled.main`
   width: 70%;
   background-color: #fff;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 10px;
   margin-top: -48px;
   margin-bottom: 16px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-
+  min-height: 80vh;
   @media (max-width: 1024px) {
     width: 80%;
   }
 
   @media (max-width: 768px) {
     width: 90%;
-     margin-top: -36px;
+    margin-top: -36px;
+    padding: 0;
+  }
+  @media (max-width: 480px) {
+    width: 100%;
+    margin-top: -36px;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
   }
 `
 

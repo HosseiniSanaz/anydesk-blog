@@ -1,7 +1,7 @@
 const theme = {
     colors: {
-        primary: "#EF443B",    // Anydesk's color
-        secondary: "#C4362F",  // Darker red for hover/secondary actions
+        primary: "#EF443B", // Anydesk's color
+        secondary: "#991B1B",
         background: "#f5f5f5",
         text: "#333",
     },
