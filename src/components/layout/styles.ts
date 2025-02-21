@@ -24,7 +24,7 @@ const Nav = styled.nav`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     width: 100%;
-    padding: 0 1rem;
+    padding: 0 16px;
   }
 `
 
@@ -62,7 +62,7 @@ const Main = styled.main`
   width: 80%;
   background-color: #fff;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 16px;
   border-radius: 10px;
   margin-top: -48px;
   margin-bottom: 16px;

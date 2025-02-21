@@ -4,8 +4,8 @@ const PostGrid = styled.div`
   display: grid;
   overflow: scroll;
   grid-template-columns: 1fr;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 16px;
+  padding: 16px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     grid-template-columns: repeat(2, 1fr);
@@ -16,7 +16,7 @@ const PostCard = styled.div`
   background-color: white;
   border-radius: 8px;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  padding: 1rem;
+  padding: 16px;
   height: 170px;
 `
 
@@ -39,7 +39,7 @@ const PostTitle = styled.h2`
 `
 
 const PostBody = styled.p`
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSizes.md};
   color: ${({ theme }) => theme.colors.text};
    overflow: hidden;
   text-overflow: ellipsis;

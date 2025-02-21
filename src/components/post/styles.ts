@@ -5,6 +5,7 @@ const PostContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 16px;
 `
 const PostHeader = styled.div`
   display: flex;
@@ -29,6 +30,7 @@ const BackButton = styled(Link)`
   gap: 8px;
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSizes.md};
+  width: fit-content;
 
   &:hover {
     color: ${({ theme }) => theme.colors.secondary};
