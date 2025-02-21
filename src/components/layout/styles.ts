@@ -51,7 +51,10 @@ const CreateButton = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   font-size: ${({ theme }) => theme.fontSizes.md};
-  
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .15s;
+
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary};
     color: white;
