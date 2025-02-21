@@ -8,14 +8,14 @@ export default function Home() {
 
   useEffect(() => {
     fetchPosts()
-  }, [fetchPosts])
+  }, [])
 
 
   return (
     <div
       className={`items-center justify-items-center `}
     >
-      <PostList posts={posts} onDelete={() => {}} />
+      <PostList posts={posts} />
       <footer className="row-start-3 flex flex-row gap-6 flex-wrap items-center justify-center">
           <a href="https://www.linkedin.com/in/hosseinisanaz/" target="_blank" rel="noopener noreferrer">
             © 2025 Powered by <b>Sanaz</b>

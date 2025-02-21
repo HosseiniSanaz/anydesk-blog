@@ -10,16 +10,16 @@ export default function EditPost() {
 
     const router = useRouter();
     const { id } = router.query;
-    const { fetchPostById } = useStore();
+    const { fetchPostById, editPost } = useStore();
     const [post, setPost] = useState<IPost>();
 
-    console.log(id, post)
     useEffect(() => {
         fetchPostById(Number(id)).then((post) => setPost(post));
     }, [fetchPostById, id]);
 
     const handleSubmit = (post: IPost) => {
-        console.log(post)
+        editPost(Number(id), post);
+        router.push("/");
     }
 
     return (

@@ -1,6 +1,6 @@
 import { IPost } from '@/types/post.type';
 interface IPostFormProps {
-    post?: IPost;
+    post?: Omit<IPost, 'id'> & { id?: number };
     onSubmit: (post: IPost) => void;
   }
 

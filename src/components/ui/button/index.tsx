@@ -1,9 +1,9 @@
 import IButtonProps from "./button.type"
 import { StyledButton } from "./styles"
 
-function Button({ children, ...props }: IButtonProps) {
+function Button({ children, variant = "muted", ...props }: IButtonProps) {
     return (
-        <StyledButton {...props}>
+        <StyledButton variant={variant} {...props}>
             {children}
         </StyledButton>
     )

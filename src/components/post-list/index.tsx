@@ -1,14 +1,11 @@
 import type React from "react"
 import Link from "next/link"
-import { PostGrid, PostCard, PostHeader, PostTitle, PostBody, DeleteButton } from "./styles"
+import { PostGrid, PostCard, PostHeader, PostTitle, PostBody } from "./styles"
 import IPostListProps from "./post-list.type"
+import DeleteAction from "@/components/delete-action"
 
-
-const PostList: React.FC<IPostListProps> = ({ posts, onDelete }) => {
-    const handleDelete = (e: React.MouseEvent<HTMLButtonElement>, id: number): void => {
-        e.preventDefault()
-        onDelete(id)
-    }
+const PostList: React.FC<IPostListProps> = ({ posts }) => {
+   
     return (
         <PostGrid>
             {posts.map((post) => (
@@ -18,9 +15,7 @@ const PostList: React.FC<IPostListProps> = ({ posts, onDelete }) => {
                             <PostTitle>
                                 {post.title}
                             </PostTitle>
-                            <DeleteButton onClick={(e) => handleDelete(e, post.id)}>
-                                <span className="material-icons">delete</span>
-                            </DeleteButton>
+                            <DeleteAction postId={post.id} />
                         </PostHeader>
                         <PostBody>{post.body}</PostBody>
                     </PostCard>

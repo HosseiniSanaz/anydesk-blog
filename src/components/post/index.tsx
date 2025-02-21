@@ -2,7 +2,8 @@ import { useRouter } from "next/router"
 import useStore from "@/store/useStore";
 import { IPost } from "@/types/post.type";
 import { useEffect, useState } from "react";
-import { PostContainer, PostHeader, PostTitle, PostBody, ButtonContainer, IconButton, BackButton } from "./styles";
+import { PostContainer, PostHeader, PostTitle, PostBody, ButtonContainer, EditButton, BackButton } from "./styles";
+import DeleteAction from "../delete-action";
 const Post: React.FC = () => {
     const router = useRouter();
     const { id } = router.query;
@@ -23,12 +24,10 @@ const Post: React.FC = () => {
             <PostHeader>
                 <PostTitle>{post?.title}</PostTitle>
                 <ButtonContainer>
-                    <IconButton>
-                        <span className="material-icons">delete</span>
-                    </IconButton>
-                    <IconButton onClick={() => router.push(`/post/${id}/edit`)}>
+                    <DeleteAction postId={Number(id)} />
+                    <EditButton onClick={() => router.push(`/post/${id}/edit`)}>
                         <span className="material-icons">edit</span>
-                    </IconButton>
+                    </EditButton>
                 </ButtonContainer>
             </PostHeader>
             <PostBody>

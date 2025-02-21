@@ -46,7 +46,7 @@ const ButtonContainer = styled.div`
   display: flex;
   gap: 8px;
 `
-const IconButton = styled.button`
+const EditButton = styled.button`
   cursor: pointer;
   background: none;
   border: none;
@@ -60,4 +60,4 @@ const IconButton = styled.button`
   }
 `
 
-export { PostContainer, PostHeader, PostTitle, PostBody, ButtonContainer, IconButton, BackButton };
+export { PostContainer, PostHeader, PostTitle, PostBody, ButtonContainer, EditButton, BackButton };
