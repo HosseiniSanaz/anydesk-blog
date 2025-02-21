@@ -28,7 +28,7 @@ const Nav = styled.nav`
   }
 `
 
-const StyledLink = styled(Link)`
+const HomeButton = styled(Link)`
   color: white;
   text-decoration: none;
   font-weight: bold;
@@ -39,6 +39,22 @@ const StyledTitle = styled.h1`
 
   @media (max-width: 768px) {
     font-size: ${({ theme }) => theme.fontSizes.xl};
+  }
+`
+const CreateButton = styled(Link)`
+  cursor: pointer;
+  background-color: #fafaf9;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.secondary};
+    color: white;
   }
 `
 
@@ -66,4 +82,4 @@ const Main = styled.main`
   }
 `
 
-export { Header, Nav, StyledLink, Main, StyledTitle }
+export { Header, Nav, HomeButton, Main, StyledTitle, CreateButton }
