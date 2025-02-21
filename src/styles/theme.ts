@@ -6,9 +6,10 @@ const theme = {
         text: "#333",
     },
     breakpoints: {
-        mobile: "480px",
-        tablet: "768px",
-        desktop: "1024px",
+        sm: "480px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1440px",
     },
     fontSizes: {
         sm: "12px",

@@ -4,7 +4,8 @@ import Link from "next/link"
 const Header = styled.header`
   background-color: ${({ theme }) => theme.colors.primary}; 
   height: 160px;
-  @media (max-width: 768px) {
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     height: 130px;
   }
 `
@@ -14,15 +15,16 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 
-  @media (max-width: 1024px) {
-    width: 80%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    width: 90%;
   }
 
-  @media (max-width: 768px) {
-    width: 90%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    width: 100%;
+    padding: 0 1rem;
   }
 `
 
@@ -34,14 +36,14 @@ const StyledLink = styled(Link)`
 const StyledTitle = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes.xxl};
   font-weight: bold;
+
   @media (max-width: 768px) {
     font-size: ${({ theme }) => theme.fontSizes.xl};
   }
 `
 
 const Main = styled.main`
-  max-width: 1200px;
-  width: 70%;
+  width: 80%;
   background-color: #fff;
   margin: 0 auto;
   padding: 1rem;
@@ -50,16 +52,12 @@ const Main = styled.main`
   margin-bottom: 16px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   min-height: 80vh;
-  @media (max-width: 1024px) {
-    width: 80%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    width: 90%;
   }
 
-  @media (max-width: 768px) {
-    width: 90%;
-    margin-top: -36px;
-    padding: 0;
-  }
-  @media (max-width: 480px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     width: 100%;
     margin-top: -36px;
     padding: 0;
