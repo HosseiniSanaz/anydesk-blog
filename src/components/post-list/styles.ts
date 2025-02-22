@@ -7,7 +7,7 @@ const PostGrid = styled.div`
   gap: 16px;
   padding: 16px;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media (min-width: ${({theme}) => theme.breakpoints.lg}) {
     grid-template-columns: repeat(2, 1fr);
   }
 `
@@ -28,9 +28,9 @@ const PostHeader = styled.div`
   margin-bottom: 16px;
 `
 const PostTitle = styled.h2`
-  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-size: ${({theme}) => theme.fontSizes.lg};
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({theme}) => theme.colors.secondary};
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -39,14 +39,14 @@ const PostTitle = styled.h2`
 `
 
 const PostBody = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ theme }) => theme.colors.text};
-   overflow: hidden;
+  font-size: ${({theme}) => theme.fontSizes.md};
+  color: ${({theme}) => theme.colors.text};
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
- 
+
 `
 
-export { PostGrid, PostCard, PostHeader, PostTitle, PostBody }
+export {PostGrid, PostCard, PostHeader, PostTitle, PostBody}

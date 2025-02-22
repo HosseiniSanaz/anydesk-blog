@@ -2,20 +2,20 @@
 
 import PostForm from "@/components/post-form"
 import useStore from "@/store/useStore";
-import { IPost } from "@/types/post.type"
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { useToast } from "./toast-provider";
+import {IPost} from "@/types/post.type"
+import {useRouter} from "next/router";
+import {useEffect, useState} from "react";
+import {useToast} from "./toast-provider";
 
 export default function EditPost() {
     const router = useRouter();
-    const { id } = router.query;
-    const { fetchPostById, editPost } = useStore();
+    const {id} = router.query;
+    const {fetchPostById, editPost} = useStore();
     const [post, setPost] = useState<IPost>();
-    const { addToast } = useToast();
+    const {addToast} = useToast();
 
     useEffect(() => {
-        if(id) {
+        if (id) {
             fetchPostById(Number(id)).then((post) => setPost(post));
         }
     }, [fetchPostById, id]);
@@ -27,7 +27,7 @@ export default function EditPost() {
     }
 
     return (
-        <PostForm post={post} onSubmit={handleSubmit} />
+        <PostForm post={post} onSubmit={handleSubmit}/>
     )
 }
 

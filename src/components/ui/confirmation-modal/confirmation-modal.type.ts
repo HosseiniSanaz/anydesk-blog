@@ -6,4 +6,4 @@ interface IConfirmationModalProps {
     message: string;
 }
 
-export type { IConfirmationModalProps }
+export type {IConfirmationModalProps}

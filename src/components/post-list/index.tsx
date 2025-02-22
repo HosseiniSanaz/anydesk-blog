@@ -1,11 +1,11 @@
 import type React from "react"
 import Link from "next/link"
-import { PostGrid, PostCard, PostHeader, PostTitle, PostBody } from "./styles"
+import {PostBody, PostCard, PostGrid, PostHeader, PostTitle} from "./styles"
 import IPostListProps from "./post-list.type"
 import DeleteAction from "@/components/delete-action"
 
-const PostList: React.FC<IPostListProps> = ({ posts }) => {
-   
+const PostList: React.FC<IPostListProps> = ({posts}) => {
+
     return (
         <PostGrid>
             {posts.map((post) => (
@@ -15,7 +15,7 @@ const PostList: React.FC<IPostListProps> = ({ posts }) => {
                             <PostTitle>
                                 {post.title}
                             </PostTitle>
-                            <DeleteAction postId={post.id} />
+                            <DeleteAction postId={post.id}/>
                         </PostHeader>
                         <PostBody>{post.body}</PostBody>
                     </PostCard>

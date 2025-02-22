@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { keyframes } from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 const slideIn = keyframes`
   to {
@@ -42,10 +41,10 @@ const ToastMessage = styled.div<{ type?: string }>`
   opacity: 0;
   transform: translateY(100%);
   animation: ${slideIn} 0.3s ease forwards;
-  
+
   &.fade-out {
     animation: ${fadeOut} 0.3s ease forwards;
   }
 `;
 
-export { ToastContainer, ToastMessage };
+export {ToastContainer, ToastMessage};

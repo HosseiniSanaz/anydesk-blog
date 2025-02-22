@@ -1,5 +1,5 @@
 import axios from "axios"
-import { IPost } from "@/types/post.type"
+import {IPost} from "@/types/post.type"
 
 const BASE_URL = "https://jsonplaceholder.typicode.com"
 

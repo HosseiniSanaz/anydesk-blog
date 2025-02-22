@@ -11,4 +11,4 @@ interface IToastManager {
     removeToast: (id: string) => void;
 }
 
-export type { IToast, IToastManager };
+export type {IToast, IToastManager};

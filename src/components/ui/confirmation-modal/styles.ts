@@ -48,7 +48,7 @@ const CancelButton = styled.button`
   color: #666;
   cursor: pointer;
   font-size: 14px;
-  
+
   &:hover {
     color: #333;
   }
@@ -62,10 +62,10 @@ const DeleteButton = styled.button`
   color: white;
   cursor: pointer;
   font-size: 14px;
-  
+
   &:hover {
     background-color: #b91c1c;
   }
 `;
 
-export { ModalContainer, ModalMessage, ModalOverlay, ModalTitle, ButtonContainer, CancelButton, DeleteButton }
+export {ModalContainer, ModalMessage, ModalOverlay, ModalTitle, ButtonContainer, CancelButton, DeleteButton}

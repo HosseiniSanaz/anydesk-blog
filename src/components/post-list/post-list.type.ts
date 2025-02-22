@@ -1,6 +1,7 @@
-import { IPost } from "@/types/post.type";
+import {IPost} from "@/types/post.type";
 
 interface IPostListProps {
     posts: IPost[]
-  }
-  export default IPostListProps;
+}
+
+export default IPostListProps;

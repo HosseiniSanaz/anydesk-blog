@@ -15,9 +15,9 @@ const PostHeader = styled.div`
   margin-bottom: 16px;
 `
 const PostTitle = styled.h2`
-  font-size: ${({ theme }) => theme.fontSizes.xl};
+  font-size: ${({theme}) => theme.fontSizes.xl};
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({theme}) => theme.colors.secondary};
 `
 
 const BackButton = styled(Link)`
@@ -29,17 +29,17 @@ const BackButton = styled(Link)`
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${({theme}) => theme.fontSizes.md};
   width: fit-content;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({theme}) => theme.colors.secondary};
   }
 `
 
 const PostBody = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.md};
-  color: ${({ theme }) => theme.colors.text};
+  font-size: ${({theme}) => theme.fontSizes.md};
+  color: ${({theme}) => theme.colors.text};
 `
 
 const ButtonContainer = styled.div`
@@ -54,10 +54,10 @@ const EditButton = styled.button`
   display: flex;
   align-items: center;
   padding: 2px;
-  
+
   &:hover {
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({theme}) => theme.colors.secondary};
   }
 `
 
-export { PostContainer, PostHeader, PostTitle, PostBody, ButtonContainer, EditButton, BackButton };
+export {PostContainer, PostHeader, PostTitle, PostBody, ButtonContainer, EditButton, BackButton};

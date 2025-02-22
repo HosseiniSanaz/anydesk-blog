@@ -1,11 +1,11 @@
-import { LoadingWrapper, Spinner } from "./styles";
+import {LoadingWrapper, Spinner} from "./styles";
 
 function Loading() {
-  return (
-    <LoadingWrapper>
-      <Spinner />
-    </LoadingWrapper>
-  );
+    return (
+        <LoadingWrapper>
+            <Spinner/>
+        </LoadingWrapper>
+    );
 }
 
 export default Loading;

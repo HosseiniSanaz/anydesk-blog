@@ -8,31 +8,31 @@ const StyledTextFieldContainer = styled.div`
 const StyledTextField = styled.input`
   padding: 8px 16px;
   font-size: 1rem;
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  border: 1px solid ${({theme}) => theme.colors.border};
   border-radius: 8px;
   width: 100%;
 
   &:focus {
     outline: none;
-    border-color: ${({ theme }) => theme.colors.input};
+    border-color: ${({theme}) => theme.colors.input};
   }
 
   &:hover {
-    border-color: ${({ theme }) => theme.colors.input};
+    border-color: ${({theme}) => theme.colors.input};
   }
 `
 
 const Label = styled.label`
   font-size: 0.875rem;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({theme}) => theme.colors.text};
 `
 
 const Error = styled.p`
-  color: ${({ theme }) => theme.colors.error};
+  color: ${({theme}) => theme.colors.error};
 `
 
 const HelperText = styled.p`
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({theme}) => theme.colors.text};
 `
 
-export { StyledTextField, Label, Error, HelperText, StyledTextFieldContainer }
+export {StyledTextField, Label, Error, HelperText, StyledTextFieldContainer}

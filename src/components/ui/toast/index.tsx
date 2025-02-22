@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import { ToastContainer, ToastMessage } from './style';
-import { IToast, IToastManager } from './toast.type';
+import {useEffect} from 'react';
+import {ToastContainer, ToastMessage} from './style';
+import {IToast, IToastManager} from './toast.type';
 
-const Toast = ({ id, message, type, onClose, duration = 2000 }: IToast) => {
+const Toast = ({id, message, type, onClose, duration = 2000}: IToast) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             onClose();
@@ -18,7 +18,7 @@ const Toast = ({ id, message, type, onClose, duration = 2000 }: IToast) => {
     );
 };
 
-const ToastManager = ({ toasts, removeToast }: IToastManager) => {
+const ToastManager = ({toasts, removeToast}: IToastManager) => {
     return (
         <ToastContainer>
             {toasts.map((toast) => (

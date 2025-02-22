@@ -8,10 +8,10 @@ const DeleteButton = styled.button`
   display: flex;
   align-items: center;
   padding: 2px;
-  
+
   &:hover {
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({theme}) => theme.colors.secondary};
   }
 `
 
-export { DeleteButton }
+export {DeleteButton}

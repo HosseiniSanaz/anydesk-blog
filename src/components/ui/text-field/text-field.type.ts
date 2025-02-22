@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react"
+import {HTMLAttributes} from "react"
 
 interface ITextFieldProps extends HTMLAttributes<HTMLDivElement> {
     label?: string
@@ -11,4 +11,4 @@ interface ITextFieldProps extends HTMLAttributes<HTMLDivElement> {
     type?: string
 }
 
-export default ITextFieldProps 
+export default ITextFieldProps

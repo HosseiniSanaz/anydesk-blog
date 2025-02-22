@@ -1,15 +1,9 @@
 import React from 'react';
-import {
-    ModalOverlay,
-    ModalContainer,
-    ModalTitle,
-    ModalMessage,
-    ButtonContainer
-} from './styles';
-import { IConfirmationModalProps } from './confirmation-modal.type';
+import {ButtonContainer, ModalContainer, ModalMessage, ModalOverlay, ModalTitle} from './styles';
+import {IConfirmationModalProps} from './confirmation-modal.type';
 import Button from '../button';
 
-const ConfirmationModal = ({ isOpen, onClose, onConfirm, title, message }: IConfirmationModalProps) => {
+const ConfirmationModal = ({isOpen, onClose, onConfirm, title, message}: IConfirmationModalProps) => {
     if (!isOpen) return null;
 
     return (

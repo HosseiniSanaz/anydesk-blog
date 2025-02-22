@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components"
+import styled, {css} from "styled-components"
 import IButtonProps from "./button.type"
 
 const StyledButton = styled.button<IButtonProps>`
@@ -10,29 +10,29 @@ const StyledButton = styled.button<IButtonProps>`
   cursor: pointer;
 
   ${props => props.variant === "primary" && css`
-    background: ${({ theme }) => theme.colors.secondary};
+    background: ${({theme}) => theme.colors.secondary};
     color: white;
-    
+
     &:hover:not(:disabled) {
-      background: ${({ theme }) => theme.colors.secondary};
+      background: ${({theme}) => theme.colors.secondary};
       filter: brightness(0.9);
     }
   `}
 
   ${props => props.variant === "secondary" && css`
-    background: ${({ theme }) => theme.colors.muted};
+    background: ${({theme}) => theme.colors.muted};
     color: #111827;
-    
-    
+
+
     &:hover:not(:disabled) {
-      background: ${({ theme }) => theme.colors.secondary};
+      background: ${({theme}) => theme.colors.secondary};
       color: white;
     }
   `}
 
   ${props => props.variant === "muted" && css`
-    background: ${({ theme }) => theme.colors.muted};
-    color: ${({ theme }) => theme.colors.text};
+    background: ${({theme}) => theme.colors.muted};
+    color: ${({theme}) => theme.colors.text};
 
     &:hover:not(:disabled) {
       background: #e5e7eb;
@@ -72,4 +72,4 @@ const StyledButton = styled.button<IButtonProps>`
   `}
 `;
 
-export { StyledButton }
+export {StyledButton}

@@ -1,9 +1,9 @@
 import type React from "react"
-import { Header, Nav, HomeButton, Main, StyledTitle, CreateButton } from "./styles"
+import {CreateButton, Header, HomeButton, Main, Nav, StyledTitle} from "./styles"
 import ILayoutProps from "./layout.type"
 
 
-const Layout: React.FC<ILayoutProps> = ({ children }) => {
+const Layout: React.FC<ILayoutProps> = ({children}) => {
     return (
         <>
             <Header>

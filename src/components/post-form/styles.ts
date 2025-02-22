@@ -7,7 +7,7 @@ const Form = styled.form`
 `
 
 const Header = styled.h3`
-  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-size: ${({theme}) => theme.fontSizes.lg};
   font-weight: 600;
 `
 
@@ -17,4 +17,4 @@ const ButtonContainer = styled.div`
   justify-content: flex-end;
 `
 
-export { Form, ButtonContainer, Header }
+export {Form, ButtonContainer, Header}
