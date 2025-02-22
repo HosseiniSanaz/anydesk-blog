@@ -7,18 +7,18 @@ import { useRouter } from "next/router";
 import { useToast } from "./toast-provider";
 
 export default function CreatePost() {
-    const { createPost } = useStore();
+    const { createPost, loading } = useStore();
     const router = useRouter();
     const { addToast } = useToast();
     
-    const handleSubmit = (post: IPost) => {
+    const handleSubmit = (post: Omit<IPost, "id" | "userId">) => {
         createPost(post);
         router.push("/");
         addToast('success', 'Post created successfully');
     }
 
     return (
-        <PostForm onSubmit={handleSubmit} />
+        <PostForm onSubmit={handleSubmit} loading={loading} />
     )
 }
 

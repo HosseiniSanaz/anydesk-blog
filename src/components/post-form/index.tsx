@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation"
 import TextField from "@/components/ui/text-field"
 import TextArea from "../ui/text-area"
 
-const PostForm: React.FC<IPostFormProps> = ({ post, onSubmit }) => {
+const PostForm: React.FC<IPostFormProps> = ({ post, onSubmit, loading }) => {
     const [title, setTitle] = useState(post?.title || "")
     const [body, setBody] = useState(post?.body || "")
     const router = useRouter();
@@ -19,11 +19,11 @@ const PostForm: React.FC<IPostFormProps> = ({ post, onSubmit }) => {
         setBody(post?.body || "")
     }, [post])
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent): void => {
         e.preventDefault()
         onSubmit({
-            id: post?.id ?? null,
-            userId: post?.userId ?? 1,
+            id: post?.id ?? undefined,
+            userId: post?.userId ?? undefined,
             title,
             body
         })
@@ -37,8 +37,8 @@ const PostForm: React.FC<IPostFormProps> = ({ post, onSubmit }) => {
             <TextField label="Title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Post Title" required />
             <TextArea label="Description" value={body} onChange={(e) => setBody(e.target.value)} placeholder="Post Body" required />
             <ButtonContainer>
-                <StyledButton variant="muted" onClick={() => router.back()}>Cancel</StyledButton>
-                <StyledButton variant="primary" type="submit" disabled={!title || !body}>
+                <StyledButton variant="muted" disabled={loading} onClick={() => router.back()}>Cancel</StyledButton>
+                <StyledButton variant="primary" loading={loading} type="submit" disabled={!title || !body}>
                     {post?.id ? "Update" : "Submit"}
                 </StyledButton>
             </ButtonContainer>
