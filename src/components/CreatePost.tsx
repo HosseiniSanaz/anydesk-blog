@@ -4,12 +4,17 @@ import PostForm from "@/components/post-form"
 import { IPost } from "@/types/post.type"
 import useStore from "@/store/useStore";
 import { useRouter } from "next/router";
+import { useToast } from "./toast-provider";
+
 export default function CreatePost() {
     const { createPost } = useStore();
     const router = useRouter();
+    const { addToast } = useToast();
+    
     const handleSubmit = (post: IPost) => {
         createPost(post);
         router.push("/");
+        addToast('success', 'Post created successfully');
     }
 
     return (
