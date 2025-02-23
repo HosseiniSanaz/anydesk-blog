@@ -5,6 +5,7 @@ const PostContainer = styled.div`
   flex-direction: column;
   gap: 16px;
   padding: 16px;
+  margin: 32px 8px;
 `
 const PostHeader = styled.div`
   display: flex;

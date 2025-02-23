@@ -1,6 +1,6 @@
 import IDeleteActionProps from "./delete-action.type";
 import ConfirmationModal from "@/components/ui/confirmation-modal";
-import {useState} from "react";
+import {useCallback, useState} from "react";
 import useStore from "@/store/useStore";
 import useToast from "@/hooks/useToast";
 import { useRouter } from "next/navigation";
@@ -13,23 +13,23 @@ function DeleteAction({postId}: IDeleteActionProps) {
     const router = useRouter();
 
 
-    const handleDelete = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    const handleDelete = useCallback((e: React.MouseEvent<HTMLButtonElement>): void => {
         e.preventDefault()
         setIsOpen(true);
-    }
+    }, [])
 
-    const onClose = (e?: React.MouseEvent<HTMLButtonElement>): void => {
+    const onClose = useCallback((e?: React.MouseEvent<HTMLButtonElement>): void => {
         e?.preventDefault();
         setIsOpen(false);
-    }
+    }, [])
 
-    const onConfirmDelete = (e?: React.MouseEvent<HTMLButtonElement>): void => {
+    const onConfirmDelete = useCallback((e?: React.MouseEvent<HTMLButtonElement>): void => {
         e?.preventDefault();
         deletePost(postId)
         setIsOpen(false);
         addToast('success', 'Post deleted successfully');
         router.push('/');
-    }
+    }, [deletePost, postId, addToast, router])
 
     return (
         <>

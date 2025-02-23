@@ -4,7 +4,7 @@ import PostForm from "@/components/post-form"
 import useStore from "@/store/useStore";
 import {IPost} from "@/types/post.type"
 import {useRouter} from "next/router";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import useToast from "@/hooks/useToast";
 import { PostFormData } from "./post-form/post-form.type";
 
@@ -25,7 +25,7 @@ export default function EditPost() {
         }
     }, [fetchPostById, id, router]);
 
-    const handleSubmit = (updatedPost: PostFormData) => {
+    const handleSubmit = useCallback((updatedPost: PostFormData) => {
         if (!post?.id) {
             addToast('error', 'Post is not found');
             return;
@@ -37,7 +37,7 @@ export default function EditPost() {
         })
         router.push(`/post/${post.id}`);
         addToast('success', 'Post updated successfully');
-    }
+    }, [addToast, editPost, post?.id, post?.userId, router]);
 
     return (
         <PostForm post={post} onSubmit={handleSubmit} loading={loading}/>

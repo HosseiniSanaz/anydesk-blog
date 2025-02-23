@@ -71,6 +71,7 @@ describe('Post Component', () => {
 
     afterEach(() => {
         jest.clearAllMocks();
+        mockStore.loading = false;
     });
 
     it('should render loading state initially', () => {

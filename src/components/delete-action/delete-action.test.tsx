@@ -21,16 +21,24 @@ jest.mock('next/navigation', () => ({
 // Mock the UI components
 jest.mock('@/components/ui/icon-button', () => ({
     __esModule: true,
-    default: ({ onClick, children }: { onClick: () => void; children?: React.ReactNode }) => (
-        <button onClick={onClick}>{children}</button>
+    default: ({ onClick, dataTestId }: { onClick: () => void; dataTestId?: string }) => (
+        <button onClick={onClick} data-testid={dataTestId}>
+            <span className="material-icons">delete</span>
+        </button>
     ),
 }));
 
-jest.mock('@/components/ui/button', () => ({
+jest.mock('@/components/ui/confirmation-modal', () => ({
     __esModule: true,
-    default: ({ onClick, children }: { onClick: () => void; children?: React.ReactNode }) => (
-        <button onClick={onClick}>{children}</button>
-    ),
+    default: ({ isOpen, onClose, onConfirm, title, message }: any) => 
+        isOpen ? (
+            <div data-testid="confirmation-modal">
+                <h2>{title}</h2>
+                <p>{message}</p>
+                <button onClick={onClose}>Cancel</button>
+                <button onClick={onConfirm}>Delete</button>
+            </div>
+        ) : null
 }));
 
 describe('DeleteAction Component', () => {
@@ -58,23 +66,25 @@ describe('DeleteAction Component', () => {
 
     it('renders delete button', () => {
         render(<DeleteAction postId={postId} />);
-        const deleteButton = screen.getByRole('button');
+        const deleteButton = screen.getByTestId('delete-action');
         expect(deleteButton).toBeInTheDocument();
     });
 
-    it('opens confirmation modal when delete button is clicked', () => {
+    it('opens confirmation modal when delete button is clicked', async () => {
         render(<DeleteAction postId={postId} />);
-        const deleteButton = screen.getByRole('button');
+        const deleteButton = screen.getByTestId('delete-action');
         
         fireEvent.click(deleteButton);
         
+        const modal = screen.getByTestId('confirmation-modal');
+        expect(modal).toBeInTheDocument();
         expect(screen.getByText('Delete Post')).toBeInTheDocument();
         expect(screen.getByText('Are you sure you want to delete this post?')).toBeInTheDocument();
     });
 
     it('closes modal when cancel is clicked', () => {
         render(<DeleteAction postId={postId} />);
-        const deleteButton = screen.getByRole('button');
+        const deleteButton = screen.getByTestId('delete-action');
         
         fireEvent.click(deleteButton);
         
@@ -82,12 +92,12 @@ describe('DeleteAction Component', () => {
         fireEvent.click(cancelButton);
         
         // Modal should be closed
-        expect(screen.queryByText('Delete Post')).not.toBeInTheDocument();
+        expect(screen.queryByTestId('confirmation-modal')).not.toBeInTheDocument();
     });
 
-    it('deletes post and shows success message when confirm is clicked', () => {
+    it('deletes post and shows success message when confirm is clicked', async () => {
         render(<DeleteAction postId={postId} />);
-        const deleteButton = screen.getByRole('button');
+        const deleteButton = screen.getByTestId('delete-action');
         
         fireEvent.click(deleteButton);
         
