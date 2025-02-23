@@ -1,12 +1,13 @@
 import {IPost} from '@/types/post.type';
 
-type CreatePostData = Omit<IPost, "id" | "userId">
-type EditPostData = IPost
-
+export type PostFormData = Required<Pick<IPost, "title" | "body">> & {
+    id?: number
+    userId?: number
+}
 interface IPostFormProps {
     post?: IPost;
     loading?: boolean;
-    onSubmit: (post: CreatePostData | EditPostData) => void;
+    onSubmit: (post: PostFormData) => void;
 }
 
 export default IPostFormProps;

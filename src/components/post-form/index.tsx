@@ -29,6 +29,11 @@ const PostForm: React.FC<IPostFormProps> = ({post, onSubmit, loading}) => {
         })
     }
 
+    const handleCancel = (e: React.FormEvent): void => {
+        e.preventDefault()
+        router.back()
+    }
+
     return (
         <Form onSubmit={handleSubmit}>
             <Header>
@@ -47,7 +52,7 @@ const PostForm: React.FC<IPostFormProps> = ({post, onSubmit, loading}) => {
                 placeholder="Post Body"
                 required/>
             <ButtonContainer>
-                <Button variant="muted" disabled={loading} onClick={() => router.back()}>Cancel</Button>
+                <Button variant="muted" disabled={loading} onClick={handleCancel}>Cancel</Button>
                 <Button variant="primary" loading={loading} type="submit" disabled={!title.trim() || !body.trim()}>
                     {post?.id ? "Update" : "Submit"}
                 </Button>

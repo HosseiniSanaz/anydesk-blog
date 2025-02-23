@@ -16,7 +16,11 @@ const Post: React.FC = () => {
 
     useEffect(() => {
         if (id) {
-            fetchPostById(Number(id)).then((post) => setPost(post));
+            fetchPostById(Number(id))
+            .then((post) => setPost(post))
+            .catch(() => {
+                router.push('/404')
+            });
         }
     }, [fetchPostById, id]);
 

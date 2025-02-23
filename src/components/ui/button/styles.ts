@@ -50,6 +50,7 @@ const StyledButton = styled.button<IButtonProps>`
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    opacity: 0.5;
 
     &::before {
       content: '';
