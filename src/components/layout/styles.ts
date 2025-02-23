@@ -63,7 +63,7 @@ const CreateButton = styled(Link)`
 
 const Main = styled.main`
   width: 80%;
-  background-color: #fff;
+  background-color: ${({theme}) => theme.colors.background};
   margin: 0 auto;
   padding: 16px;
   border-radius: 10px;

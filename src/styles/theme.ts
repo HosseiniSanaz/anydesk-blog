@@ -5,6 +5,7 @@ const theme = {
         muted: "#f5f5f5",
         background: "#f5f5f5",
         text: "#333",
+        textLight: "#666",
         error: "#EF443B",
         success: "#00C853",
         warning: "#FF9800",

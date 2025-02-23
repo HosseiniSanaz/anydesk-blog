@@ -26,12 +26,12 @@ const ModalTitle = styled.h2`
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 16px;
-  color: #333;
+  color: ${({theme}) => theme.colors.text};
 `;
 
 const ModalMessage = styled.p`
   margin-bottom: 24px;
-  color: #666;
+  color: ${({theme}) => theme.colors.textLight};
   line-height: 1.5;
 `;
 

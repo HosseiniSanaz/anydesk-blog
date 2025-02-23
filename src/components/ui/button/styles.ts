@@ -21,7 +21,7 @@ const StyledButton = styled.button<IButtonProps>`
 
   ${props => props.variant === "secondary" && css`
     background: ${({theme}) => theme.colors.muted};
-    color: #111827;
+    color: ${({theme}) => theme.colors.text};
 
 
     &:hover:not(:disabled) {
@@ -35,7 +35,7 @@ const StyledButton = styled.button<IButtonProps>`
     color: ${({theme}) => theme.colors.text};
 
     &:hover:not(:disabled) {
-      background: #e5e7eb;
+      background: ${({theme}) => theme.colors.border};
     }
   `}
 

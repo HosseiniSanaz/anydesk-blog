@@ -35,7 +35,7 @@ export default function EditPost() {
             id: post.id,
             userId: post.userId
         })
-        router.push("/");
+        router.push(`/post/${post.id}`);
         addToast('success', 'Post updated successfully');
     }
 

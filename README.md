@@ -2,6 +2,12 @@
 
 This is a Next.js application for managing blog posts using the JSONPlaceholder API.
 
+## Demo
+
+You can access the live demo of the application via the following link:
+
+[Anydesk Blog](https://anydesk-blog.vercel.app/)
+
 ## Technology Stack
 
 - Next.js (Pages Router)
@@ -20,7 +26,7 @@ This is a Next.js application for managing blog posts using the JSONPlaceholder 
 
 ## Setup and Running the Project
 
-1. Clone the repository
+1. Clone the repository: `git clone git@github.com:HosseiniSanaz/anydesk-blog.git`
 2. Install dependencies: `npm install`
 3. Run the development server: `npm run dev`
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
