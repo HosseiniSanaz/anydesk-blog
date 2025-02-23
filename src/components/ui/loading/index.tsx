@@ -2,7 +2,7 @@ import {LoadingWrapper, Spinner} from "./styles";
 
 function Loading() {
     return (
-        <LoadingWrapper>
+        <LoadingWrapper data-testid="loading">
             <Spinner/>
         </LoadingWrapper>
     );

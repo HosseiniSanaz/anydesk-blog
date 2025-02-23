@@ -36,7 +36,11 @@ const Post: React.FC = () => {
                 <PostTitle>{post?.title}</PostTitle>
                 <ButtonContainer>
                     <DeleteAction postId={Number(id)}/>
-                    <IconButton icon="edit" onClick={() => router.push(`/post/${id}/edit`)}/>
+                    <IconButton 
+                        dataTestId="edit-button"
+                        icon="edit" 
+                        onClick={() => router.push(`/post/${id}/edit`)}
+                    />
                 </ButtonContainer>
             </PostHeader>
             <PostBody>

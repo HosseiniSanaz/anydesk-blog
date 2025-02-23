@@ -33,7 +33,7 @@ function DeleteAction({postId}: IDeleteActionProps) {
 
     return (
         <>
-            <IconButton icon="delete" onClick={handleDelete}/>
+            <IconButton icon="delete" onClick={handleDelete} dataTestId="delete-action"/>
             <ConfirmationModal
                 isOpen={isOpen}
                 onClose={onClose}
