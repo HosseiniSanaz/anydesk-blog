@@ -4,6 +4,7 @@ import DeleteAction from './index';
 import useStore from '@/store/useStore';
 import useToast from '@/hooks/useToast';
 import { useRouter } from 'next/navigation';
+import { IConfirmationModalProps } from '../ui/confirmation-modal/confirmation-modal.type';
 
 // Mock the hooks
 jest.mock('@/store/useStore', () => ({
@@ -30,7 +31,7 @@ jest.mock('@/components/ui/icon-button', () => ({
 
 jest.mock('@/components/ui/confirmation-modal', () => ({
     __esModule: true,
-    default: ({ isOpen, onClose, onConfirm, title, message }: any) => 
+    default: ({ isOpen, onClose, onConfirm, title, message }: IConfirmationModalProps) => 
         isOpen ? (
             <div data-testid="confirmation-modal">
                 <h2>{title}</h2>

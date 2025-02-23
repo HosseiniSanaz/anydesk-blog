@@ -37,7 +37,7 @@ const PostForm: React.FC<IPostFormProps> = ({ post, onSubmit, loading }) => {
             title,
             body
         })
-    }, [onSubmit, post?.id, post?.userId, title, body])
+    }, [onSubmit, post?.id, post?.userId, title, body, addToast])
 
     const handleCancel = useCallback((e: React.FormEvent): void => {
         e.preventDefault()
