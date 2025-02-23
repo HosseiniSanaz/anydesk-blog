@@ -21,6 +21,12 @@ const PostCard = styled.div`
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   padding: 16px;
   height: 170px;
+  @media (max-width: ${({theme}) => theme.breakpoints.md}) {
+    height: 140px;
+  }
+  @media (max-width: ${({theme}) => theme.breakpoints.sm}) {
+    height: 120px;
+  }
 `
 
 const PostHeader = styled.div`
@@ -29,6 +35,13 @@ const PostHeader = styled.div`
   align-items: start;
   gap: 8px;
   margin-bottom: 16px;
+  @media (max-width: ${({theme}) => theme.breakpoints.md}) {
+    margin-bottom: 8px;
+    min-height: 50px;
+  }
+  @media (max-width: ${({theme}) => theme.breakpoints.sm}) {
+    min-height: 40px;
+  }
 `
 const PostTitle = styled.h2`
   font-size: ${({theme}) => theme.fontSizes.lg};
@@ -39,6 +52,9 @@ const PostTitle = styled.h2`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  @media (max-width: ${({theme}) => theme.breakpoints.sm}) {
+    font-size: ${({theme}) => theme.fontSizes.md};
+  }
 `
 
 const PostBody = styled.p`
@@ -49,7 +65,9 @@ const PostBody = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-
+  @media (max-width: ${({theme}) => theme.breakpoints.sm}) {
+    font-size: ${({theme}) => theme.fontSizes.sm};
+  }
 `
 
 export {PostGrid, PostCard, PostHeader, PostTitle, PostBody}

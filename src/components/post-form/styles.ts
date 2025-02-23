@@ -9,6 +9,7 @@ const Form = styled.form`
 const Header = styled.h3`
   font-size: ${({theme}) => theme.fontSizes.lg};
   font-weight: 600;
+  color: ${({theme}) => theme.colors.secondary};
 `
 
 const ButtonContainer = styled.div`

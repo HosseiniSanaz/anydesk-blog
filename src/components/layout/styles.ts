@@ -1,12 +1,12 @@
 import styled from "styled-components"
 import Link from "next/link"
 
-const Header = styled.header`
+const Header = styled.header<{isHomePage: boolean}>`
   background-color: ${({theme}) => theme.colors.primary};
   height: 160px;
 
   @media (max-width: ${({theme}) => theme.breakpoints.md}) {
-    height: 130px;
+    height: ${({isHomePage}) => isHomePage ? '130px' : '90px'};
   }
 `
 
@@ -55,13 +55,22 @@ const CreateButton = styled(Link)`
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-duration: .15s;
 
+  @media (max-width: ${({theme}) => theme.breakpoints.md}) {
+    font-size: ${({theme}) => theme.fontSizes.sm};
+    padding: 6px 12px;
+
+    .material-icons {
+      font-size: ${({theme}) => theme.fontSizes.md};
+    }
+  }
+
   &:hover {
     background-color: ${({theme}) => theme.colors.secondary};
     color: white;
   }
 `
 
-const Main = styled.main`
+const Main = styled.main<{isHomePage: boolean}>`
   width: 80%;
   background-color: ${({theme}) => theme.colors.background};
   margin: 0 auto;
@@ -78,8 +87,8 @@ const Main = styled.main`
 
   @media (max-width: ${({theme}) => theme.breakpoints.md}) {
     width: 100%;
-    margin-top: -36px;
-    padding: 0;
+    margin-top: ${({isHomePage}) => isHomePage ? '-36px' : '0'};
+    padding: ${({isHomePage}) => isHomePage ? '0' : '16px'};
     background-color: transparent;
     box-shadow: none;
   }

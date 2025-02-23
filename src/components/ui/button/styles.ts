@@ -9,6 +9,10 @@ const StyledButton = styled.button<IButtonProps>`
   border: none;
   cursor: pointer;
 
+  @media (max-width: ${({theme}) => theme.breakpoints.md}) {
+    font-size: ${({theme}) => theme.fontSizes.sm};
+  }
+
   ${props => props.variant === "primary" && css`
     background: ${({theme}) => theme.colors.secondary};
     color: white;
@@ -33,6 +37,7 @@ const StyledButton = styled.button<IButtonProps>`
   ${props => props.variant === "muted" && css`
     background: ${({theme}) => theme.colors.muted};
     color: ${({theme}) => theme.colors.text};
+    border: 1px solid ${({theme}) => theme.colors.border};
 
     &:hover:not(:disabled) {
       background: ${({theme}) => theme.colors.border};

@@ -4,20 +4,24 @@ const PostContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 16px;
-  margin: 32px 8px;
 `
 const PostHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: baseline;
   gap: 8px;
   margin-bottom: 16px;
+  @media (max-width: ${({theme}) => theme.breakpoints.md}) {
+    margin-bottom: 8px;
+  }
 `
 const PostTitle = styled.h2`
   font-size: ${({theme}) => theme.fontSizes.xl};
   font-weight: bold;
   color: ${({theme}) => theme.colors.secondary};
+  @media (max-width: ${({theme}) => theme.breakpoints.md}) {
+    font-size: ${({theme}) => theme.fontSizes.lg};
+  }
 `
 
 const PostBody = styled.p`

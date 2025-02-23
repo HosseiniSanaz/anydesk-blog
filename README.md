@@ -8,13 +8,24 @@ You can access the live demo of the application via the following link:
 
 [Anydesk Blog](https://anydesk-blog.vercel.app/)
 
-## Technology Stack
+## Features
 
-- Next.js (Pages Router)
-- TypeScript
-- Zustand (State Management)
-- Styled Components
-- Jest and React Testing Library
+### Core Functionality
+- View all posts with pagination
+- View individual post details
+- Create new posts (simulated)
+- Edit existing posts (simulated)
+- Delete posts (simulated)
+- Toast notifications for user feedback
+
+### Technical Features
+- Server-side rendering (SSR)
+- TypeScript for type safety
+- Global state management with Zustand
+- Styled-components for CSS-in-JS
+- Responsive design for all devices
+- Comprehensive error handling
+- Loading states and animations
 
 ## Project Structure
 
@@ -23,25 +34,46 @@ You can access the live demo of the application via the following link:
 - `src/services`: API service (Fetch posts, and simulate Create, Edit, Delete)
 - `src/store`: Zustand store (State management for the app)
 - `src/styles`: Global styles and theme
+- `src/hooks`: Define shared hooks like useToast
+- `src/types`: Define shared types
 
-## Setup and Running the Project
+## Getting Started
 
-1. Clone the repository: `git clone git@github.com:HosseiniSanaz/anydesk-blog.git`
-2. Install dependencies: `npm install`
-3. Run the development server: `npm run dev`
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone git@github.com:HosseiniSanaz/anydesk-blog.git
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
+
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Running Tests
+## Available Scripts
 
-Run `npm test` to execute the test suite.
-
-## Features
-
-- View all posts (Home page)
-- View individual post details (Post details page)
-- Create new posts (simulated)
-- Edit existing posts (simulated)
-- Delete posts (simulated)
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm test` - Run test suite
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript checks
 
 ## Error Handling
 
@@ -53,4 +85,12 @@ The application is styled using styled-components and is responsive across diffe
 
 ## Testing
 
-The project uses Jest for testing and React Testing Library for rendering components.
+### Unit Tests
+- Component testing with Jest and React Testing Library
+- Store testing for Zustand state management
+- API service mocking
+
+## Performance Optimization
+
+- Image optimization with Next.js Image component
+- Memoization of expensive computations
