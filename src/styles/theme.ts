@@ -11,6 +11,7 @@ const theme = {
         info: "#2196F3",
         border: "#e5e7eb",
         input: "#1f1f1f",
+        disabled: "#a09e9e",
     },
     breakpoints: {
         sm: "480px",

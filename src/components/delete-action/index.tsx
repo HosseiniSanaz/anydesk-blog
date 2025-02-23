@@ -1,10 +1,10 @@
-import {DeleteButton} from "./styles";
 import IDeleteActionProps from "./delete-action.type";
 import ConfirmationModal from "@/components/ui/confirmation-modal";
 import {useState} from "react";
 import useStore from "@/store/useStore";
-import {useToast} from "../toast-provider";
+import useToast from "@/hooks/useToast";
 import { useRouter } from "next/navigation";
+import IconButton from "@/components/ui/icon-button";
 
 function DeleteAction({postId}: IDeleteActionProps) {
     const [isOpen, setIsOpen] = useState(false);
@@ -33,9 +33,7 @@ function DeleteAction({postId}: IDeleteActionProps) {
 
     return (
         <>
-            <DeleteButton onClick={handleDelete}>
-                <span className="material-icons">delete</span>
-            </DeleteButton>
+            <IconButton icon="delete" onClick={handleDelete}/>
             <ConfirmationModal
                 isOpen={isOpen}
                 onClose={onClose}

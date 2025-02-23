@@ -4,7 +4,7 @@ import PostForm from "@/components/post-form"
 import {IPost} from "@/types/post.type"
 import useStore from "@/store/useStore";
 import {useRouter} from "next/router";
-import {useToast} from "./toast-provider";
+import useToast from "@/hooks/useToast";
 
 export default function CreatePost() {
     const {createPost, loading} = useStore();

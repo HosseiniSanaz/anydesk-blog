@@ -1,8 +1,8 @@
-import React, {createContext, useContext, useState} from 'react';
+import React, {createContext, useState} from 'react';
 import ToastManager from '@/components/ui/toast';
 import {IToast} from '../ui/toast/toast.type';
 
-const ToastContext = createContext<{ addToast: (type: string, message: string) => void } | undefined>(undefined);
+export const ToastContext = createContext<{ addToast: (type: string, message: string) => void } | undefined>(undefined);
 
 export const ToastProvider = ({children}: { children: React.ReactNode }) => {
     const [toasts, setToasts] = useState<IToast[]>([]);
@@ -27,12 +27,4 @@ export const ToastProvider = ({children}: { children: React.ReactNode }) => {
             <ToastManager toasts={toasts} removeToast={removeToast}/>
         </ToastContext.Provider>
     );
-};
-
-export const useToast = () => {
-    const context = useContext(ToastContext);
-    if (context === undefined) {
-        throw new Error('useToast must be used within a ToastProvider');
-    }
-    return context;
 };

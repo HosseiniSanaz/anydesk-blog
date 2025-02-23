@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import { styled } from "styled-components"
 
-const DeleteButton = styled.button`
+const Button = styled.button`
   cursor: pointer;
   background: none;
   border: none;
-  color: #a09e9e;
+  color: ${({theme}) => theme.colors.disabled};
   display: flex;
   align-items: center;
   padding: 2px;
@@ -13,5 +13,4 @@ const DeleteButton = styled.button`
     color: ${({theme}) => theme.colors.secondary};
   }
 `
-
-export {DeleteButton}
+export {Button}

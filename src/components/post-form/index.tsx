@@ -4,7 +4,7 @@ import type React from "react"
 import {useEffect, useState} from "react"
 import {ButtonContainer, Form, Header} from "./styles"
 import IPostFormProps from "./post-form.type"
-import {StyledButton} from "@/components/ui/button/styles"
+import Button from "@/components/ui/button"
 import {useRouter} from "next/navigation"
 import TextField from "@/components/ui/text-field"
 import TextArea from "../ui/text-area"
@@ -47,10 +47,10 @@ const PostForm: React.FC<IPostFormProps> = ({post, onSubmit, loading}) => {
                 placeholder="Post Body"
                 required/>
             <ButtonContainer>
-                <StyledButton variant="muted" disabled={loading} onClick={() => router.back()}>Cancel</StyledButton>
-                <StyledButton variant="primary" loading={loading} type="submit" disabled={!title.trim() || !body.trim()}>
+                <Button variant="muted" disabled={loading} onClick={() => router.back()}>Cancel</Button>
+                <Button variant="primary" loading={loading} type="submit" disabled={!title.trim() || !body.trim()}>
                     {post?.id ? "Update" : "Submit"}
-                </StyledButton>
+                </Button>
             </ButtonContainer>
         </Form>
     )

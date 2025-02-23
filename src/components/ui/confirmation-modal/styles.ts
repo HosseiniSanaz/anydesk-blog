@@ -41,31 +41,4 @@ const ButtonContainer = styled.div`
   gap: 12px;
 `;
 
-const CancelButton = styled.button`
-  padding: 8px 16px;
-  border: none;
-  background: none;
-  color: #666;
-  cursor: pointer;
-  font-size: 14px;
-
-  &:hover {
-    color: #333;
-  }
-`;
-
-const DeleteButton = styled.button`
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  background-color: #dc2626;
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-
-  &:hover {
-    background-color: #b91c1c;
-  }
-`;
-
-export {ModalContainer, ModalMessage, ModalOverlay, ModalTitle, ButtonContainer, CancelButton, DeleteButton}
+export {ModalContainer, ModalMessage, ModalOverlay, ModalTitle, ButtonContainer}

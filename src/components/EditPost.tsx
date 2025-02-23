@@ -5,7 +5,7 @@ import useStore from "@/store/useStore";
 import {IPost} from "@/types/post.type"
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
-import {useToast} from "./toast-provider";
+import useToast from "@/hooks/useToast";
 
 export default function EditPost() {
     const router = useRouter();

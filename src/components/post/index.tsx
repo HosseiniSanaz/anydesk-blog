@@ -2,9 +2,10 @@ import {useRouter} from "next/router"
 import useStore from "@/store/useStore";
 import {IPost} from "@/types/post.type";
 import {useEffect, useState} from "react";
-import {BackButton, ButtonContainer, EditButton, PostBody, PostContainer, PostHeader, PostTitle} from "./styles";
+import {ButtonContainer, PostBody, PostContainer, PostHeader, PostTitle} from "./styles";
 import DeleteAction from "../delete-action";
 import Loading from "@/components/ui/loading";
+import IconButton from "../ui/icon-button";
 
 
 const Post: React.FC = () => {
@@ -25,17 +26,13 @@ const Post: React.FC = () => {
 
     return (
         <PostContainer>
-            <BackButton href="/">
-                <span className="material-icons">arrow_back</span>
-                Posts
-            </BackButton>
+            <IconButton icon="arrow_back" onClick={() => router.push("/")}>Posts</IconButton>
+      
             <PostHeader>
                 <PostTitle>{post?.title}</PostTitle>
                 <ButtonContainer>
                     <DeleteAction postId={Number(id)}/>
-                    <EditButton onClick={() => router.push(`/post/${id}/edit`)}>
-                        <span className="material-icons">edit</span>
-                    </EditButton>
+                    <IconButton icon="edit" onClick={() => router.push(`/post/${id}/edit`)}/>
                 </ButtonContainer>
             </PostHeader>
             <PostBody>
