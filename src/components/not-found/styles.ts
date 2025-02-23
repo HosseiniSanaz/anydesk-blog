@@ -9,10 +9,6 @@ const NotFoundContainer = styled.div`
   height: 60vh;
 `;
 
-const NotFoundTitle = styled.h1`
-  font-size: 2rem;
-  font-weight: 600;
-`;
 
 const NotFoundMessage = styled.p`
   font-size: 1.2rem;
@@ -35,4 +31,4 @@ const HomeButton = styled(Link)`
       filter: brightness(0.9);
   }
 `
-export { NotFoundContainer, NotFoundTitle, NotFoundMessage, HomeButton };
+export { NotFoundContainer, NotFoundMessage, HomeButton };

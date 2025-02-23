@@ -11,7 +11,7 @@ const Layout: React.FC<ILayoutProps> = ({children}) => {
 
     return (
         <>
-            <Header isHomePage={isHomePage}>
+            <Header $isHomePage={isHomePage}>
                 <Nav>
                     <HomeButton href="/">
                         <StyledTitle>Anydesk Blog</StyledTitle>
@@ -22,7 +22,7 @@ const Layout: React.FC<ILayoutProps> = ({children}) => {
                     </CreateButton>
                 </Nav>
             </Header>
-            <Main isHomePage={isHomePage}>{children}</Main>
+            <Main $isHomePage={isHomePage}>{children}</Main>
         </>
     )
 }

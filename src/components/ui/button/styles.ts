@@ -1,7 +1,6 @@
 import styled, {css} from "styled-components"
-import IButtonProps from "./button.type"
 
-const StyledButton = styled.button<IButtonProps>`
+const StyledButton = styled.button<{ $variant?: string; $loading?: boolean; $disabled?: boolean }>`
   padding: 8px 16px;
   border-radius: 8px;
   font-weight: 600;
@@ -13,7 +12,7 @@ const StyledButton = styled.button<IButtonProps>`
     font-size: ${({theme}) => theme.fontSizes.sm};
   }
 
-  ${props => props.variant === "primary" && css`
+  ${props => props.$variant === "primary" && css`
     background: ${({theme}) => theme.colors.secondary};
     color: white;
 
@@ -23,7 +22,7 @@ const StyledButton = styled.button<IButtonProps>`
     }
   `}
 
-  ${props => props.variant === "secondary" && css`
+  ${props => props.$variant === "secondary" && css`
     background: ${({theme}) => theme.colors.muted};
     color: ${({theme}) => theme.colors.text};
 
@@ -34,7 +33,7 @@ const StyledButton = styled.button<IButtonProps>`
     }
   `}
 
-  ${props => props.variant === "muted" && css`
+  ${props => props.$variant === "muted" && css`
     background: ${({theme}) => theme.colors.muted};
     color: ${({theme}) => theme.colors.text};
     border: 1px solid ${({theme}) => theme.colors.border};
@@ -44,12 +43,12 @@ const StyledButton = styled.button<IButtonProps>`
     }
   `}
 
-  ${props => props.disabled && css`
+  ${props => props.$disabled && css`
     opacity: 0.5;
     cursor: not-allowed;
   `}
 
-  ${props => props.loading && css`
+  ${props => props.$loading && css`
     position: relative;
     display: flex;
     align-items: center;

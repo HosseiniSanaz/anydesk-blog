@@ -70,4 +70,22 @@ const PostBody = styled.p`
   }
 `
 
-export {PostGrid, PostCard, PostHeader, PostTitle, PostBody}
+const EmptyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  gap: 16px;
+  text-align: center;
+`
+const EmptyTitle = styled.h2`
+  font-size: ${({theme}) => theme.fontSizes.lg};
+  font-weight: bold;
+`
+const EmptyMessage = styled.p`
+  font-size: ${({theme}) => theme.fontSizes.lg};
+  color: ${({theme}) => theme.colors.text};
+`
+
+export {PostGrid, PostCard, PostHeader, PostTitle, PostBody, EmptyContainer, EmptyMessage, EmptyTitle}
