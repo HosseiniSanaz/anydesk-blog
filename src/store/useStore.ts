@@ -1,20 +1,10 @@
 import {create} from "zustand"
 import {getPosts} from "@/services/api"
 import {IPost} from "@/types/post.type";
+import IStore from "./store.type";
 
-interface Store {
-    posts: IPost[];
-    setPosts: (posts: IPost[]) => void;
-    loading: boolean;
-    error: string | null;
-    fetchPosts: () => Promise<IPost[] | undefined>;
-    fetchPostById: (id: number) => Promise<IPost>;
-    deletePost: (id: number) => Promise<void>;
-    editPost: (id: number, post: IPost) => Promise<void>;
-    createPost: (post: Omit<IPost, "id" | "userId">) => Promise<void>;
-}
 
-const useStore = create<Store>((set, get) => ({
+const useStore = create<IStore>((set, get) => ({
     posts: [],
     setPosts: (posts: IPost[]) => set({posts}),
     loading: false,

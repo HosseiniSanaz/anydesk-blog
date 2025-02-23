@@ -48,7 +48,7 @@ const PostForm: React.FC<IPostFormProps> = ({post, onSubmit, loading}) => {
                 required/>
             <ButtonContainer>
                 <StyledButton variant="muted" disabled={loading} onClick={() => router.back()}>Cancel</StyledButton>
-                <StyledButton variant="primary" loading={loading} type="submit" disabled={!title || !body}>
+                <StyledButton variant="primary" loading={loading} type="submit" disabled={!title.trim() || !body.trim()}>
                     {post?.id ? "Update" : "Submit"}
                 </StyledButton>
             </ButtonContainer>

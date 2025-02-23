@@ -7,8 +7,8 @@ const ConfirmationModal = ({isOpen, onClose, onConfirm, title, message}: IConfir
     if (!isOpen) return null;
 
     return (
-        <ModalOverlay>
-            <ModalContainer>
+        <ModalOverlay onClick={onClose}>
+            <ModalContainer onClick={(e) => e.stopPropagation()}>
                 <ModalTitle>{title}</ModalTitle>
                 <ModalMessage>{message}</ModalMessage>
                 <ButtonContainer>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 const NotFoundContainer = styled.div`
@@ -18,4 +19,20 @@ const NotFoundMessage = styled.p`
   color: ${props => props.theme.colors.text};
 `;
 
-export {NotFoundContainer, NotFoundTitle, NotFoundMessage};
+const HomeButton = styled(Link)`
+  margin-top: 16px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+  background: ${({ theme }) => theme.colors.secondary};
+  color: white;
+
+  &:hover:not(:disabled) {
+      background: ${({ theme }) => theme.colors.secondary};
+      filter: brightness(0.9);
+  }
+`
+export { NotFoundContainer, NotFoundTitle, NotFoundMessage, HomeButton };

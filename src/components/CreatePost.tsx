@@ -12,6 +12,10 @@ export default function CreatePost() {
     const {addToast} = useToast();
 
     const handleSubmit = (post: Omit<IPost, "id" | "userId">) => {
+        if (post.title.trim() === "" || post.body.trim() === "") {
+            addToast('error', 'Please fill in all fields');
+            return;
+        }
         createPost(post);
         router.push("/");
         addToast('success', 'Post created successfully');

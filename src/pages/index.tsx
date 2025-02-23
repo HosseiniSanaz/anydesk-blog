@@ -1,18 +1,28 @@
 import useStore from "@/store/useStore";
-import {useEffect} from "react";
+import {useEffect, useMemo} from "react";
 import PostList from "@/components/post-list";
 import Loading from "@/components/ui/loading";
 import Footer from "@/components/Footer";
+import {GetStaticProps} from "next";
+import {getPosts} from "@/services/api";
+import {IPost} from "@/types/post.type";
 
 
-export default function Home() {
-    const {posts, fetchPosts, loading} = useStore()
+export default function Home(props: { posts: IPost[] }) {
+    const {posts, fetchPosts, loading, setPosts} = useStore()
 
     useEffect(() => {
         if (posts.length === 0) {
-            fetchPosts()
+            setPosts(props.posts);
+            // fetchPosts() // @TODO: uncomment this when we have a backend for CRUD operations
         }
-    }, [fetchPosts, posts])
+    }, [fetchPosts, setPosts, props.posts]);
+
+
+    const sortedPosts = useMemo(() => {
+        return posts.sort((a, b) => b.id - a.id);
+    }, [posts]);
+
 
     if (loading) {
         return <Loading/>
@@ -20,19 +30,17 @@ export default function Home() {
 
     return (
         <div>
-            <PostList posts={posts}/>
+            <PostList posts={sortedPosts}/>
             <Footer/>
         </div>
     );
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   const posts = await getPosts()
-//   console.log('posts',posts)
-//   return {
-//     props: {
-//       posts,
-//     },
-//     revalidate: 120,
-//   }
-// }
+export const getStaticProps: GetStaticProps = async () => {
+    const posts = await getPosts()
+    return {
+        props: {
+            posts
+        }
+    }
+}

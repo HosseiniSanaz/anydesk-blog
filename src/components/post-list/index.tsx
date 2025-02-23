@@ -9,17 +9,18 @@ const PostList: React.FC<IPostListProps> = ({posts}) => {
     return (
         <PostGrid>
             {posts.map((post) => (
-                <Link href={`/post/${post.id}`}>
-                    <PostCard key={post.id}>
-                        <PostHeader>
+                <PostCard key={post.id}>
+                    <PostHeader>
+                        <Link href={`/post/${post.id}`}>
                             <PostTitle>
                                 {post.title}
                             </PostTitle>
-                            <DeleteAction postId={post.id}/>
-                        </PostHeader>
-                        <PostBody>{post.body}</PostBody>
-                    </PostCard>
-                </Link>
+                        </Link>
+                        <DeleteAction postId={post.id}/>
+                    </PostHeader>
+                    <PostBody>{post.body}</PostBody>
+                </PostCard>
+
             ))}
         </PostGrid>
     )

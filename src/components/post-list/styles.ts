@@ -6,6 +6,9 @@ const PostGrid = styled.div`
   grid-template-columns: 1fr;
   gap: 16px;
   padding: 16px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media (min-width: ${({theme}) => theme.breakpoints.lg}) {
     grid-template-columns: repeat(2, 1fr);

@@ -4,11 +4,14 @@ import ConfirmationModal from "@/components/ui/confirmation-modal";
 import {useState} from "react";
 import useStore from "@/store/useStore";
 import {useToast} from "../toast-provider";
+import { useRouter } from "next/navigation";
 
 function DeleteAction({postId}: IDeleteActionProps) {
     const [isOpen, setIsOpen] = useState(false);
     const {deletePost} = useStore();
     const {addToast} = useToast();
+    const router = useRouter();
+
 
     const handleDelete = (e: React.MouseEvent<HTMLButtonElement>): void => {
         e.preventDefault()
@@ -25,6 +28,7 @@ function DeleteAction({postId}: IDeleteActionProps) {
         deletePost(postId)
         setIsOpen(false);
         addToast('success', 'Post deleted successfully');
+        router.push('/');
     }
 
     return (
