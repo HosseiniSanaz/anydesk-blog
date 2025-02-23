@@ -23,7 +23,7 @@ export default function EditPost() {
                 router.push('/404')
             });;
         }
-    }, [fetchPostById, id]);
+    }, [fetchPostById, id, router]);
 
     const handleSubmit = (updatedPost: PostFormData) => {
         if (!post?.id) {

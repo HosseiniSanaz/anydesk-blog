@@ -9,14 +9,14 @@ import {IPost} from "@/types/post.type";
 
 
 export default function Home(props: { posts: IPost[] }) {
-    const {posts, fetchPosts, loading, setPosts} = useStore()
+    const {posts, loading, setPosts} = useStore()
 
     useEffect(() => {
         if (posts.length === 0) {
             setPosts(props.posts);
             // fetchPosts() // @TODO: uncomment this when we have a backend for CRUD operations
         }
-    }, [fetchPosts, setPosts, props.posts]);
+    }, [setPosts, props.posts, posts]);
 
 
     const sortedPosts = useMemo(() => {

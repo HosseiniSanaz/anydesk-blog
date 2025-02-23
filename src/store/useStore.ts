@@ -19,6 +19,7 @@ const useStore = create<IStore>((set, get) => ({
             return posts;
         } catch (error) {
             set({error: "Failed to fetch posts", loading: false})
+            console.log(error)
         }
     },
     fetchPostById: async (id: number) => {

@@ -9,7 +9,7 @@ const Toast = ({id, message, type, onClose, duration = 2000}: IToast) => {
         }, duration);
 
         return () => clearTimeout(timer);
-    }, [onClose]);
+    }, [onClose, duration]);
 
     return (
         <ToastMessage type={type} id={id}>
@@ -23,6 +23,7 @@ const ToastManager = ({toasts, removeToast}: IToastManager) => {
         <ToastContainer>
             {toasts.map((toast) => (
                 <Toast
+                    key={toast.id}
                     id={toast.id}
                     message={toast.message}
                     type={toast.type}

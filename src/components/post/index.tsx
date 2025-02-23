@@ -22,7 +22,7 @@ const Post: React.FC = () => {
                 router.push('/404')
             });
         }
-    }, [fetchPostById, id]);
+    }, [fetchPostById, id, router]);
 
     if (loading) {
         return <Loading/>
