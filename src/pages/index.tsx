@@ -14,7 +14,7 @@ export default function Home(props: { posts: IPost[] }) {
     useEffect(() => {
         if (posts.length === 0) {
             setPosts(props.posts);
-            // fetchPosts() // @TODO: uncomment this when we have a backend for CRUD operations
+            // fetchPosts() // @TODO: replace with this when we have a backend for CRUD operations
         }
     }, [setPosts, props.posts, posts]);
 
@@ -39,6 +39,7 @@ export default function Home(props: { posts: IPost[] }) {
     );
 }
 
+// pre generating data
 export const getStaticProps: GetStaticProps = async () => {
     const posts = await getPosts()
     return {

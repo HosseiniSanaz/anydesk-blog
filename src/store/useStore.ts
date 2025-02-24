@@ -73,7 +73,7 @@ const useStore = create<IStore>((set, get) => ({
     createPost: async (post: Omit<IPost, "id" | "userId">) => {
         set({loading: true, error: null});
         try {
-            const posts = [...get().posts, {...post, id: get().posts.length + 1, userId: 1}];
+            const posts = [...get().posts, {...post, id: new Date().getTime(), userId: 1}];
             setTimeout(() => {
                 set({posts, loading: false});
             }, 1000);
