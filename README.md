@@ -40,7 +40,7 @@ You can access the live demo of the application via the following link:
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v14 or higher)
+- Node.js (v18 or higher)
 - npm or yarn
 
 ### Installation
